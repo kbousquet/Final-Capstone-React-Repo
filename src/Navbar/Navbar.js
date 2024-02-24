@@ -20,7 +20,7 @@ export default class Navbar extends Component {
             </div>
             <ul className="nav__links active">
                 <li className="link">
-                    <a href="../Landing_Page/LandingPage.html">Home</a>
+                    <a href="../home">Home</a>
                 </li>
                 <li className="link">
                     <a href="#">Appointments</a>
@@ -33,12 +33,12 @@ export default class Navbar extends Component {
                 </li>
                 <div className="nav__btns">
                     <li className="link">
-                        <a href="../Sign_Up/Sign_Up.html">
+                        <a href="../signup">
                             <button className="nav__btn">Sign Up</button>
                         </a>
                     </li>
                     <li className="link">
-                        <a href="../Login/Login.html">
+                        <a href="../login">
                             <button className="nav__btn">Login</button>
                         </a>
                     </li>

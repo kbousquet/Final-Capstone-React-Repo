@@ -1,8 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from './Navbar/Navbar';
-import Landing_Page from './Landing_Page/Landing_Page';
+import LandingPage from './Landing_Page/LandingPage';
+import Signup from './Sign_Up/Signup';
+import Login from './Login/Login';
 
 function App() {
     return (
@@ -10,7 +11,10 @@ function App() {
             <BrowserRouter>
                 <Navbar/>
                 <Routes>
-                    <Route path="/" element={<Landing_Page/>}/>
+                    <Route path="/" element={<LandingPage/>}/>
+                    <Route path="/home" element={<LandingPage/>}/>
+                    <Route path="/signup" element={<Signup/>}/>
+                    <Route path="/login" element={<Login/>}/>
                 </Routes>
                     
             </BrowserRouter>

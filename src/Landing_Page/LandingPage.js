@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './LandingPage.css';
 
-export default class Landing_Page extends Component {
+export default class LandingPage extends Component  {
   render() {
     return (
         <section className="hero-section">
