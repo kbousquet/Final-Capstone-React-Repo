@@ -1,8 +1,49 @@
-import React, { Component } from 'react';
+import React, {useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import './Navbar.css';
 
-export default class Navbar extends Component {
-  render() {
+const Navbar = () => {
+    const [click, setClick] = useState(false);
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [username, setUsername] = useState("");
+    const[email,setEmail]=useState("");
+    const [showDropdown, setShowDropdown] = useState(false);
+    const handleClick = () => setClick(!click);
+
+    
+    const handleLogout = () => {
+        sessionStorage.removeItem("auth-token");
+        sessionStorage.removeItem("name");
+        sessionStorage.removeItem("email");
+        sessionStorage.removeItem("phone");
+        localStorage.removeItem("doctorData");
+        setIsLoggedIn(false);
+        setUsername("");
+       
+        // Remove the reviewFormData from local storage
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (key.startsWith("reviewFormData_")) {
+                localStorage.removeItem(key);
+            }
+        }
+        setEmail('');
+        window.location.reload();
+    }
+    const handleDropdown = () => {
+        setShowDropdown(!showDropdown);
+    }
+    useEffect(() => { 
+    const storedemail = sessionStorage.getItem("email");
+
+    if (storedemail) {
+        setIsLoggedIn(true);
+        setUsername(storedemail.split('@')[0]);
+        }
+    }, []);
+
+
     return (
         <nav>
             <div className="nav__logo">
@@ -20,31 +61,45 @@ export default class Navbar extends Component {
             </div>
             <ul className="nav__links active">
                 <li className="link">
-                    <a href="../home">Home</a>
+                    <Link to="/home">Home</Link>
                 </li>
                 <li className="link">
-                    <a href="#">Appointments</a>
+                    <Link to="/search/doctors">Appointments</Link>
                 </li>
                 <li className="link">
-                    <a href="#">Health Blog</a>
+                    <Link to="/healthblog">Health Blog</Link>
                 </li>
                 <li className="link">
-                    <a href="#">Reviews</a>
+                    <Link to="/reviews">Reviews</Link>
                 </li>
                 <div className="nav__btns">
-                    <li className="link">
-                        <a href="../signup">
-                            <button className="nav__btn">Sign Up</button>
-                        </a>
-                    </li>
-                    <li className="link">
-                        <a href="../login">
-                            <button className="nav__btn">Login</button>
-                        </a>
-                    </li>
+                {isLoggedIn?(
+                    <>  
+                        <p>Welcome, {username}</p>
+                        <li className="link">
+                            <button className="nav__btn logout-btn" onClick={handleLogout}>
+                            Logout
+                            </button>
+                        </li>
+                    </>
+                ) : (
+                    <>
+                        <li className="link">
+                            <Link to="/signup">
+                                    <button className="nav__btn logout-btn">Sign Up</button>
+                            </Link>
+                        </li>
+                        <li className="link">
+                            <Link to="/login">
+                                <button className="nav__btn">Login</button>
+                            </Link>
+                        </li>
+                    </>
+                )}
                 </div>
             </ul>
         </nav>
     )
-  }
 }
+
+export default Navbar;

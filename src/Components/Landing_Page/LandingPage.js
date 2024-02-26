@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './LandingPage.css';
 
-export default class LandingPage extends Component  {
-  render() {
+const LandingPage = () =>  {
     return (
         <section className="hero-section">
             <div data-aos="fade-up" className="flex-hero">
@@ -29,5 +28,6 @@ export default class LandingPage extends Component  {
             </div>
         </section>
     )
-  }
 }
+
+export default LandingPage;

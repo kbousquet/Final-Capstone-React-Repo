@@ -92,17 +92,17 @@
         color: #fff;
     }
 
-    .invalid-feedback {
+    .err {
         color: red;
-        font-size: 14px;
-        visibility: visible;
-      }
+        font-size: 12px;
+        padding-top: 5px;
+    }
 
     .error-container {
         height: 10px; 
         overflow: visible;
     }
-    
+
     .is-invalid {
         border-color: red;
     }

@@ -1,9 +1,9 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from './Navbar/Navbar';
-import LandingPage from './Landing_Page/LandingPage';
-import Signup from './Sign_Up/Signup';
-import Login from './Login/Login';
+import Navbar from './Components/Navbar/Navbar';
+import LandingPage from './Components/Landing_Page/LandingPage';
+import Signup from './Components/Sign_Up/Signup';
+import Login from './Components/Login/Login';
 
 function App() {
     return (

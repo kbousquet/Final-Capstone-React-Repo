@@ -38,7 +38,25 @@ nav {
     gap: 3rem;
     font-size: 1rem;
     font-weight: 500;
+    margin-right: 32px;
   }
+
+  /* .nav__links.active {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin: auto;
+    background-color: #fff;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    animation: slideDown 0.5s ease-in-out;
+  } */
   
   .link a {
     color: #000000;
@@ -54,7 +72,8 @@ nav {
   .nav__btns {
     display: flex;
     gap: 0.5rem;
-    margin-right: 2em;
+    width: 250px;
+    justify-content: flex-end;
   }
 
   .nav__btn{
