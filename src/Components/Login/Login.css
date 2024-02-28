@@ -95,7 +95,7 @@
         color: #fff;
     }
 
-    .invalid-feedback {
+    .err {
         color: red;
         font-size: 14px;
         visibility: visible;
