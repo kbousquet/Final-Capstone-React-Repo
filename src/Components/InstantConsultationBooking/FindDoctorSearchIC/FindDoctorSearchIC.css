@@ -103,6 +103,10 @@
     border:1px solid #B4B4B4;
 }
 
+.find-a-doctor-img{
+    width: 500px;
+}
+
 .findiconimg{
     width: 40px;
     left: 0;
@@ -123,6 +127,7 @@
     height: 420px;
     margin-top: 2px;
     border: 1px solid #555;
+    overflow-y: scroll;
 }
 
 .search-doctor-result-item {
