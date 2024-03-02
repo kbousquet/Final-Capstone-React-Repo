@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './FindDoctorSearchIC.css';
 import { useNavigate, Navigate } from 'react-router-dom';
 import magnifyingGlass from '../../../Images/magnifying-glass.svg';
-import findADoctor from '../../../Images/findADoctor.PNG';
+import onlineConsultation from '../../../Images/Online-Consultation.jpg';
 
 const initSpeciality = [
     'Dentist', 'Gynecologist/obstetrician', 'General Physician', 'Dermatologist', 'Ear-nose-throat (ent) Specialist', 'Homeopath', 'Ayurveda'
@@ -22,8 +22,8 @@ const FindDoctorSearchIC = () => {
     return (
         <div className='finddoctor'>
             <center>
-                <h1>Find a doctor and Consult instantly</h1>
-                <div><img src={findADoctor} className="find-a-doctor-img"></img></div>                
+                <h1>Find a doctor to consult with instantly</h1>
+                <div><img src={onlineConsultation} className="find-a-doctor-imgIC"></img></div>                
                 <div className="home-search-container"  style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
                     <div className="doctor-search-box">
                     {/* <p>Perform a search to see the results.</p> */}

@@ -103,8 +103,8 @@
     border:1px solid #B4B4B4;
 }
 
-.find-a-doctor-img{
-    width: 500px;
+.find-a-doctor-imgIC{
+    width: 400px;
 }
 
 .findiconimg{
@@ -174,7 +174,7 @@
 }
 
 .finddoctor{
-    /* height: 0 auto; */
+    height: 0 auto;
     overflow: hidden;
 } 
 .finddoctor .mainimg{
