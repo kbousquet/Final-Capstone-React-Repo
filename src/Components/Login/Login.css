@@ -1,6 +1,6 @@
 .login-wrapper {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background-color: rgb(128, 128, 128);
     display: flex;
     justify-content: center;

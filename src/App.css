@@ -3,7 +3,7 @@ body {
 }
 
 #main {
-    overflow-y: scroll;
+    overflow-y: auto;
     position: absolute;
     margin-top: 138px;
     min-width: 100%;

@@ -1,6 +1,6 @@
 .hero-section {
-    height: 90%;
-    padding-top: 15rem;
+    height: calc(100% - 12rem);
+    margin-top: 12rem;
     background-color: transparent;
     z-index: -1;
 
