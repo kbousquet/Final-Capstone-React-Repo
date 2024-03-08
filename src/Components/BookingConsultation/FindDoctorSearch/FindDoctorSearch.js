@@ -17,7 +17,7 @@ const FindDoctorSearch = () => {
         setSearchDoctor(speciality);
         setDoctorResultHidden(true);
         navigate(`/search/doctors?speciality=${speciality}`);
-        window.location.reload();
+        // window.location.reload();
     }
     return (
         <div className='finddoctor'>

@@ -1,1 +1,11 @@
+body {
+    overflow: hidden;
+}
 
+#main {
+    overflow-y: scroll;
+    position: absolute;
+    margin-top: 138px;
+    min-width: 100%;
+    height: calc(100% - 138px);
+}

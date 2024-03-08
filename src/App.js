@@ -12,14 +12,16 @@ function App() {
         <>
             <BrowserRouter>
                 <Navbar/>
-                <Routes>
-                    <Route path="/" element={<LandingPage/>}/>
-                    <Route path="/home" element={<LandingPage/>}/>
-                    <Route path="/signup" element={<Signup/>}/>
-                    <Route path="/login" element={<Login/>}/>
-                    <Route path="/instant-consultation" element={<InstantConsultation />}/>
-                    <Route path="/search/doctors" element={<BookingConsultation />}/>
-                </Routes>
+                <div id="main">
+                    <Routes>
+                        <Route path="/" element={<LandingPage/>}/>
+                        <Route path="/home" element={<LandingPage/>}/>
+                        <Route path="/signup" element={<Signup/>}/>
+                        <Route path="/login" element={<Login/>}/>
+                        <Route path="/instant-consultation" element={<InstantConsultation />}/>
+                        <Route path="/search/doctors" element={<BookingConsultation />}/>
+                    </Routes>
+                </div>
                     
             </BrowserRouter>
         </>

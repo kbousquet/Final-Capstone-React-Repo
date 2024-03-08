@@ -46,7 +46,7 @@ const InstantConsultation = () => {
                 
             setFilteredDoctors(filtered);
             setIsSearched(true);
-            window.location.reload()
+            // window.location.reload()
         }
     };
     const navigate = useNavigate();

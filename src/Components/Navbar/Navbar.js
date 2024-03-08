@@ -29,7 +29,7 @@ const Navbar = () => {
             }
         }
         setEmail('');
-        window.location.reload();
+        // window.location.reload();
     }
     const handleDropdown = () => {
         setShowDropdown(!showDropdown);

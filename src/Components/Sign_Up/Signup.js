@@ -48,7 +48,7 @@ const Signup = () => {
             
             // Redirect to home page
             navigate("/");
-            window.location.reload();
+            // window.location.reload();
         } else {
             if (typeof json.error === "string") {
                 setshowEmailExistErr(json.error);
