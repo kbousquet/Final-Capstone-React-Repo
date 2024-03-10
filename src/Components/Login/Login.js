@@ -33,7 +33,7 @@ const Login = () => {
         
             sessionStorage.setItem('email', email);
             navigate('/');
-            // window.location.reload()
+            window.location.reload()
         } else {
             if (json.errors) {
                 for (const error of json.errors) {

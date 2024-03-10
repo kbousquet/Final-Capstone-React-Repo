@@ -29,7 +29,7 @@ const Navbar = () => {
             }
         }
         setEmail('');
-        // window.location.reload();
+        window.location.reload();
     }
     const handleDropdown = () => {
         setShowDropdown(!showDropdown);
@@ -62,6 +62,9 @@ const Navbar = () => {
             <ul className="nav__links active">
                 <li className="link">
                     <Link to="/home">Home</Link>
+                </li>
+                <li className="link">
+                    <Link to="/services">Services</Link>
                 </li>
                 <li className="link">
                     <Link to="/appointments">Appointments</Link>

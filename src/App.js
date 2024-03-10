@@ -25,8 +25,7 @@ function App() {
                         <Route path="/services" element={<Services />}/>
                     </Routes>
                     <Notification />
-                </div>
-                    
+                </div>       
             </BrowserRouter>
         </>
     );
