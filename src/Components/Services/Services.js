@@ -9,24 +9,24 @@ const Services = () => {
     
     return (
         <div id="services-wrapper">
-            <div className="services-card">
-                <Link to="/instant-consultation" style={{ textDecoration: 'none' }}>
+            <Link to="/instant-consultation" style={{ textDecoration: 'none' }}>
+                <div className="services-card">
                     <img src={instantConsult} alt="instant-consultation"></img> 
-                </Link>
-                <p>Instant Consultation</p>
-            </div>
+                    <p>Instant Consultation</p>
+                </div>
+            </Link>
             <Link to="/appointments" style={{ textDecoration: 'none' }}>
                 <div className="services-card">
-                        <img src={bookAppointment} alt="book-appointment"></img> 
+                    <img src={bookAppointment} alt="book-appointment"></img> 
                     <p>Book an Appointment</p>
                 </div>
             </Link>
-            <div className="services-card">
-                <Link to="/" style={{ textDecoration: 'none' }}>
+            <Link to="/" style={{ textDecoration: 'none' }}>
+                <div className="services-card">
                     <img src={healthTips} alt="health-tips"></img> 
-                </Link>
-                <p>Health Tips and Guidance</p>
-            </div>
+                    <p>Health Tips and Guidance</p>
+                </div>
+            </Link>
         </div>
     )
 }
