@@ -16,7 +16,7 @@ const FindDoctorSearch = () => {
     const handleDoctorSelect = (speciality) => {
         setSearchDoctor(speciality);
         setDoctorResultHidden(true);
-        navigate(`/appointments?speciality=${speciality}`);
+        navigate(`/services/appointments?speciality=${speciality}`);
         // window.location.reload();
     }
     return (

@@ -9,24 +9,27 @@ const Services = () => {
     
     return (
         <div id="services-wrapper">
-            <Link to="/instant-consultation" style={{ textDecoration: 'none' }}>
-                <div className="services-card">
-                    <img src={instantConsult} alt="instant-consultation"></img> 
-                    <p>Instant Consultation</p>
-                </div>
-            </Link>
-            <Link to="/appointments" style={{ textDecoration: 'none' }}>
-                <div className="services-card">
-                    <img src={bookAppointment} alt="book-appointment"></img> 
-                    <p>Book an Appointment</p>
-                </div>
-            </Link>
-            <Link to="/" style={{ textDecoration: 'none' }}>
-                <div className="services-card">
-                    <img src={healthTips} alt="health-tips"></img> 
-                    <p>Health Tips and Guidance</p>
-                </div>
-            </Link>
+            <h1>Our Services</h1>
+            <div id="services-container">
+                <Link to="/services/instant-consultation" style={{ textDecoration: 'none' }}>
+                    <div className="services-card">
+                        <img src={instantConsult} alt="services/instant-consultation"></img> 
+                        <p>Instant Consultation</p>
+                    </div>
+                </Link>
+                <Link to="/services/appointments" style={{ textDecoration: 'none' }}>
+                    <div className="services-card">
+                        <img src={bookAppointment} alt="book-appointment"></img> 
+                        <p>Book an Appointment</p>
+                    </div>
+                </Link>
+                <Link to="/" style={{ textDecoration: 'none' }}>
+                    <div className="services-card">
+                        <img src={healthTips} alt="health-tips"></img> 
+                        <p>Health Tips and Guidance</p>
+                    </div>
+                </Link>
+            </div>
         </div>
     )
 }

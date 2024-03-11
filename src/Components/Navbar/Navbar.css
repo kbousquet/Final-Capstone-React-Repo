@@ -1,4 +1,3 @@
-/** Header - Navbar */
 nav {
     /* padding: 1.5rem; */
     position: fixed;
@@ -15,26 +14,26 @@ nav {
     z-index: 999;
     padding: 24px;
     height:  90px;
-  }
-  
-  .nav__logo {
+}
+
+.nav__logo {
     font-weight: 600;
     cursor: pointer;
     margin-left: 2em;
     height: 100%;
     display: flex;
     align-items: center;
-  }
+}
 
-  .nav__logo a{
+.nav__logo a{
     font-size: 3rem;
     text-decoration: none;
     color: black;
     display: flex;
     align-items: center;
-  }
-  
-  .nav__links {
+}
+
+.nav__links {
     list-style: none;
     display: flex;
     align-items: center;
@@ -42,9 +41,9 @@ nav {
     font-size: 1rem;
     font-weight: 500;
     margin-right: 32px;
-  }
+}
 
-  /* .nav__links.active {
+/* .nav__links.active {
     display: flex;
     position: absolute;
     top: 100%;
@@ -59,27 +58,27 @@ nav {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 999;
     animation: slideDown 0.5s ease-in-out;
-  } */
-  
-  .link a {
+} */
+
+.link a {
     color: #000000;
     transition: 0.3s;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  .link a:hover {
+}
+
+.link a:hover {
     color: #008BC7;
-  }
-  
-  .nav__btns {
+}
+
+.nav__btns {
     display: flex;
     gap: 0.5rem;
     width: 250px;
     justify-content: flex-end;
-  }
+}
 
-  .nav__btn{
+.nav__btn{
     border: none;
     background-color: #008BC7;
     color: white;
@@ -88,11 +87,11 @@ nav {
     transition: all 0.5s ease-in-out;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
-  }
-  
-  .nav__btn:hover{
+}
+
+.nav__btn:hover{
     transform: scale(0.98);
     background-color: #015b81;
     color: white;
     cursor: pointer;
-  }  
+}  

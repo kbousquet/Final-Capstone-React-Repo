@@ -6,7 +6,6 @@ import Signup from './Components/Sign_Up/Signup';
 import Login from './Components/Login/Login';
 import InstantConsultation from './Components/InstantConsultationBooking/InstantConsultation';
 import BookingConsultation from './Components/BookingConsultation/BookingConsultation';
-import Notification from './Components/Notification/Notification';
 import Services from './Components/Services/Services';
 
 function App() {
@@ -20,11 +19,10 @@ function App() {
                         <Route path="/home" element={<LandingPage/>}/>
                         <Route path="/signup" element={<Signup/>}/>
                         <Route path="/login" element={<Login/>}/>
-                        <Route path="/instant-consultation" element={<InstantConsultation />}/>
-                        <Route path="/appointments" element={<BookingConsultation />}/>
+                        <Route path="/services/instant-consultation" element={<InstantConsultation />}/>
+                        <Route path="/services/appointments" element={<BookingConsultation />}/>
                         <Route path="/services" element={<Services />}/>
                     </Routes>
-                    <Notification />
                 </div>       
             </BrowserRouter>
         </>
