@@ -10,10 +10,8 @@ const Navbar = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [username, setUsername] = useState("");
     const [email, setEmail]=useState("");
-    const [showDropdown, setShowDropdown] = useState(false);
     const [doctorData, setDoctorData] = useState(null);
     const [appointmentData, setAppointmentData] = useState({});
-    const handleClick = () => setClick(!click);
 
     
     const handleLogout = () => {
@@ -35,22 +33,21 @@ const Navbar = () => {
         setEmail('');
         window.location.reload();
     }
-    const handleDropdown = () => {
-        setShowDropdown(!showDropdown);
-    }
+    
     useEffect(() => { 
-        const storedemail = sessionStorage.getItem("email");
+        const storedEmail = sessionStorage.getItem("email");
         const storedUsername = sessionStorage.getItem('email');
         const storedDoctorData = JSON.parse(localStorage.getItem('doctorData'));
         const storedAppointmentData = JSON.parse(localStorage.getItem(storedDoctorData?.name));
         
-        if (storedemail) {
+        if (storedEmail) {
             setIsLoggedIn(true);
-            setUsername(storedemail.split('@')[0]);
-            }
+            setEmail(storedEmail);
+        }
+
         if (storedUsername) {
-        setIsLoggedIn(true);
-        setUsername(storedUsername);
+            setIsLoggedIn(true);
+            setUsername(storedEmail.split('@')[0]);
         }
 
         if (storedDoctorData) {
