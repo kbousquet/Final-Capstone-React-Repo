@@ -27,6 +27,9 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
     const updatedAppointments = [...appointments, newAppointment];
     setAppointments(updatedAppointments);
     setShowModal(false);
+    
+    localStorage.setItem("appointmentData", JSON.stringify(appointmentData));
+    window.location.reload()
   };
 
   return (

@@ -7,6 +7,7 @@ import Login from './Components/Login/Login';
 import InstantConsultation from './Components/InstantConsultationBooking/InstantConsultation';
 import BookingConsultation from './Components/BookingConsultation/BookingConsultation';
 import Services from './Components/Services/Services';
+import Notification from './Components/Notification/Notification';
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                         <Route path="/services/appointments" element={<BookingConsultation />}/>
                         <Route path="/services" element={<Services />}/>
                     </Routes>
+                    <Notification />
                 </div>       
             </BrowserRouter>
         </>

@@ -3,15 +3,11 @@ import React, { useState } from 'react'
 const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [selectedSlot, setSelectedSlot] = useState(null);
-  
-    const handleSlotSelection = (slot) => {
-      setSelectedSlot(slot);
-    };
+    const [dateTime, setDateTime] = useState('');
   
     const handleFormSubmit = (e) => {
       e.preventDefault();
-      onSubmit({ name, phoneNumber });
+      onSubmit({ name, phoneNumber, dateTime, doctorName, doctorSpeciality });
       setName('');
       setPhoneNumber('');
     };
@@ -35,6 +31,16 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
             id="phoneNumber"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="dateTime">Date & Time:</label>
+          <input
+            type="datetime-local"
+            id="dateTime"
+            value={dateTime}
+            onChange={(e) => setDateTime(e.target.value)}
             required
           />
         </div>

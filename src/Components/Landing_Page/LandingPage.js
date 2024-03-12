@@ -14,7 +14,7 @@ const LandingPage = () =>  {
                     Our Responsibility
                     </span>
                 </h1>
-                    <div classNameName="blob-cont">
+                    <div className="blob-cont">
                         <div className="blue blob"></div>
                     </div>
                     <div className="blob-cont">

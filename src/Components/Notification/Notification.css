@@ -1,8 +1,11 @@
-#notification-container{
+.notification-container {
     position: fixed;
     bottom:0;
     right:0;
-    height: 100px;
-    width: 100px;
-    background-color: red;
+    background-color: #008BC7;
+}
+
+.expanded {
+    max-height: 500px;
+    max-width: 500px;
 }
