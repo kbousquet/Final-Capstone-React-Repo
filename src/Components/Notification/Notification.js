@@ -4,20 +4,14 @@ import collapseChevron from '../../Images/collapse-chevron.svg';
 import './Notification.css';
 import Navbar from '../Navbar/Navbar';
 
-const Notification = ({children}) => {
+const Notification = ({children, appointmentData}) => {
     const [expanded, setExpanded] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [appointmentData, setAppointmentData] = useState(null);
+    // const [appointmentData, setAppointmentData] = useState(null);
     
     useEffect(() => {
         const storedUsername = sessionStorage.getItem('email');
-        const str = localStorage.getItem("appointmentData");
-        const storedAppointmentData = JSON.parse(str);
-
-        if (storedAppointmentData) {
-            setAppointmentData(storedAppointmentData);
-        }
-
+      
         if (storedUsername) {
             setIsLoggedIn(true);
         }

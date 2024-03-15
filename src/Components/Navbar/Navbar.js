@@ -4,11 +4,8 @@ import './Navbar.css';
 import stayHealthyLogo from '../../Images/logoIcon.svg';
 
 const Navbar = () => {
-    const [click, setClick] = useState(false);
-
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [username, setUsername] = useState("");
-    const [email, setEmail]=useState("");
     
     const handleLogout = () => {
         sessionStorage.removeItem("auth-token");
@@ -26,16 +23,16 @@ const Navbar = () => {
                 localStorage.removeItem(key);
             }
         }
-        setEmail('');
+        // callback(null);
         window.location.reload();
     }
     
     useEffect(() => { 
         const storedEmail = sessionStorage.getItem("email");
         const storedUsername = sessionStorage.getItem('email');
+
         if (storedEmail) {
             setIsLoggedIn(true);
-            setEmail(storedEmail);
         }
 
         if (storedUsername) {

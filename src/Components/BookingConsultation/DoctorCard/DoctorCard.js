@@ -6,31 +6,50 @@ import AppointmentForm from '../AppointmentForm/AppointmentForm'
 import { v4 as uuidv4 } from 'uuid';
 
 
-const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
-  const [showModal, setShowModal] = useState(false);
-  const [appointments, setAppointments] = useState([]);
+const DoctorCard = ({ name, speciality, experience, ratings, toggleAppointmentData, profilePic }) => {
+    const [showModal, setShowModal] = useState(false);
+    const [appointments, setAppointments] = useState([]);
 
-  const handleBooking = () => {
-    setShowModal(true);
-  };
-
-  const handleCancel = (appointmentId) => {
-    const updatedAppointments = appointments.filter((appointment) => appointment.id !== appointmentId);
-    setAppointments(updatedAppointments);
-  };
-
-  const handleFormSubmit = (appointmentData) => {
-    const newAppointment = {
-      id: uuidv4(),
-      ...appointmentData,
+    const handleBooking = () => {
+        setShowModal(true);
     };
-    const updatedAppointments = [...appointments, newAppointment];
-    setAppointments(updatedAppointments);
-    setShowModal(false);
-    
-    localStorage.setItem("appointmentData", JSON.stringify(appointmentData));
-    window.location.reload()
-  };
+
+    const handleCancel = (appointmentId) => {
+        const updatedAppointments = appointments.filter((appointment) => appointment.id !== appointmentId);
+        setAppointments(updatedAppointments);
+        toggleAppointmentData(null);
+    };
+
+    const handleFormSubmit = (appointmentData) => {
+        const newAppointment = {
+        id: uuidv4(),
+        ...appointmentData,
+        };
+        const updatedAppointments = [...appointments, newAppointment];
+        setAppointments(updatedAppointments);
+        setShowModal(false);
+        
+        localStorage.setItem("appointmentData", JSON.stringify(appointmentData));
+        toggleAppointmentData(appointmentData);
+    };
+
+    const checkAppointment = () =>  {
+        const str = localStorage.getItem("appointmentData");
+        const storedAppointmentData = JSON.parse(str);
+
+        if (storedAppointmentData && storedAppointmentData.doctorName === name && storedAppointmentData.doctorSpeciality === speciality) {
+            const newAppointment = {
+                id: uuidv4(),
+                ...storedAppointmentData,
+                };
+                const updatedAppointments = [...appointments, newAppointment];
+                setAppointments(updatedAppointments);
+        }
+    }
+
+    useEffect(() => {
+        checkAppointment();
+    }, []);
 
   return (
     <div className="doctor-card-container">
