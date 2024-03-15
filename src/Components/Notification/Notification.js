@@ -21,12 +21,12 @@ const toggleExpanded = () => {
   return (
     <>
         {appointmentData && (
-            <div className={(expanded ? 'expanded notification-container' : 'notification-container')}>
-                <button onClick={toggleExpanded}>
-                <h3>Appointment Details</h3>
+            <div className={(expanded ? 'notification-container expanded' : 'notification-container')}>
+                <button className="expand-btn" onClick={toggleExpanded}>
                 {expanded ? <img src={collapseChevron} alt="Collapse" width="20px" height="20px" /> : <img src={expandChevron} alt="Expand" width="20px" height="20px" />}
+                <h3>Appointment Details</h3>
                 </button>
-                {expanded && 
+                {/* {expanded &&  */}
                     <>
                         <p>
                             <strong>Doctor:</strong> {appointmentData?.doctorName}
@@ -38,7 +38,7 @@ const toggleExpanded = () => {
                             <strong>Date & Time:</strong> {appointmentData?.dateTime}
                         </p>
                     </>
-                }
+                {/* } */}
             </div>
         )}
     </>
