@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import './Navbar.css';
 import stayHealthyLogo from '../../Images/logoIcon.svg';
 
-const Navbar = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+const Navbar = ({isLoggedIn, toggleIsLoggedIn}) => {
     const [username, setUsername] = useState("");
     
     const handleLogout = () => {
@@ -12,8 +11,7 @@ const Navbar = () => {
         sessionStorage.removeItem("name");
         sessionStorage.removeItem("email");
         sessionStorage.removeItem("phone");
-        localStorage.removeItem("appointmentData");
-        setIsLoggedIn(false);
+        toggleIsLoggedIn(false);
         setUsername("");
        
         // Remove the reviewFormData from local storage
@@ -32,11 +30,11 @@ const Navbar = () => {
         const storedUsername = sessionStorage.getItem('email');
 
         if (storedEmail) {
-            setIsLoggedIn(true);
+            toggleIsLoggedIn(true);
         }
 
         if (storedUsername) {
-            setIsLoggedIn(true);
+            toggleIsLoggedIn(true);
             setUsername(storedEmail.split('@')[0]);
         }
     }, []);

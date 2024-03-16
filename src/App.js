@@ -10,63 +10,45 @@ import Services from './Components/Services/Services';
 import Notification from './Components/Notification/Notification';
 
 function App() {
-    // const [appointmentData, setAppointmentData] = useState(null);
-    // const toggleAppointmentData = (data) => {
-    //     setAppointmentData(data);
-    //     if (data === null) {
-    //         localStorage.removeItem("appointmentData");
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     const str = localStorage.getItem("appointmentData");
-    //     const storedAppointmentData = JSON.parse(str);
-
-    //     if (storedAppointmentData) {
-    //         setAppointmentData(storedAppointmentData);
-    //     }
-    // }, []);
-
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [appointmentData, setAppointmentData] = useState([]);
     const toggleAppointmentData = (data, type) => {
         if (type === "add") {
-            setAppointmentData([...appointmentData, data]);
-            localStorage.setItem("appointmentData", appointmentData);
+            appointmentData.push(data);
+            setAppointmentData([...appointmentData]);
         } else if (type === "remove") {
             const updatedAppointments = appointmentData.filter((appointment) => appointment.id !== data.id);
             setAppointmentData([updatedAppointments]);
-            localStorage.setItem("appointmentData", appointmentData);
         }
+    }
+    const toggleIsLoggedIn = (boolean) => {
+        setIsLoggedIn(boolean)
     }
 
     useEffect(() => {
-        // const str = localStorage.getItem("appointmentData");
-        // const storedAppointmentData = JSON.parse(str);
-
-     
-        const storedAppointmentData = localStorage.getItem("appointmentData");
-
-        // setAppointmentData([{doctorName: "shelly", doctorSpeciality: "dentist", dateTime: "2am"}])
-        // localStorage.setItem("appointmentData", storedAppointmentData);
-
+        const str = localStorage.getItem("appointmentData");
+        const storedAppointmentData = JSON.parse(str);
         if (storedAppointmentData) {
-            // localStorage.setItem("appointmentData", storedAppointmentData);
             setAppointmentData(storedAppointmentData);
         }
     }, []);
+
+    useEffect(() => {
+        if (appointmentData.length > 0) localStorage.setItem("appointmentData", JSON.stringify(appointmentData));
+    }, [appointmentData])
 
     return (
         <>
             <BrowserRouter>
                 <div id="main">
-                    <Notification appointmentData={appointmentData}>
+                    <Notification appointmentData={appointmentData} isLoggedIn={isLoggedIn} toggleIsLoggedIn={toggleIsLoggedIn} >
                         <Routes>
                             <Route path="/" element={<LandingPage/>}/>
                             <Route path="/home" element={<LandingPage/>}/>
                             <Route path="/signup" element={<Signup/>}/>
                             <Route path="/login" element={<Login/>}/>
                             <Route path="/services/instant-consultation" element={<InstantConsultation />}/>
-                            <Route path="/services/appointments" element={<BookingConsultation toggleAppointmentData={toggleAppointmentData} appointments={appointmentData} />}/>
+                            <Route path="/services/appointments" element={<BookingConsultation toggleAppointmentData={toggleAppointmentData} appointments={appointmentData} isLoggedIn={isLoggedIn} />}/>
                             <Route path="/services" element={<Services />}/>
                         </Routes>   
                     </Notification>  

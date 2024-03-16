@@ -6,7 +6,7 @@ import AppointmentForm from '../AppointmentForm/AppointmentForm'
 import { v4 as uuidv4 } from 'uuid';
 
 
-const DoctorCard = ({ name, speciality, experience, ratings, toggleAppointmentData, appointments, profilePic }) => {
+const DoctorCard = ({ name, speciality, experience, ratings, toggleAppointmentData, appointments, isLoggedIn, profilePic }) => {
     const [showModal, setShowModal] = useState(false);
     const [bookedApp, setbookedApp] = useState(null);
 
@@ -15,25 +15,12 @@ const DoctorCard = ({ name, speciality, experience, ratings, toggleAppointmentDa
     };
 
     const handleCancel = (appointmentId) => {
-        // const updatedAppointments = appointments.filter((appointment) => appointment.id !== appointmentId);
-        // setAppointments(updatedAppointments);
-        // toggleAppointmentData(null);
         const appointment = appointments.find((appointment) => appointment.id == appointmentId);
         setAppointments(updatedAppointments);
         toggleAppointmentData(appointment, "remove");
     };
 
     const handleFormSubmit = (appointmentData) => {
-        // const newAppointment = {
-        // id: uuidv4(),
-        // ...appointmentData,
-        // };
-        // const updatedAppointments = [...appointments, newAppointment];
-        // setAppointments(updatedAppointments);
-        // setShowModal(false);
-        
-        // localStorage.setItem("appointmentData", JSON.stringify(appointmentData));
-        // toggleAppointmentData(appointmentData);
         const newAppointment = {
             id: uuidv4(),
             ...appointmentData,
@@ -43,18 +30,6 @@ const DoctorCard = ({ name, speciality, experience, ratings, toggleAppointmentDa
     };
 
     const checkAppointment = () =>  {
-        // const str = localStorage.getItem("appointmentData");
-        // const storedAppointmentData = JSON.parse(str);
-
-        // if (storedAppointmentData && storedAppointmentData.doctorName === name && storedAppointmentData.doctorSpeciality === speciality) {
-        //     const newAppointment = {
-        //         id: uuidv4(),
-        //         ...storedAppointmentData,
-        //         };
-        //         const updatedAppointments = [...appointments, newAppointment];
-        //         setAppointments(updatedAppointments);
-        // }
-
         const foundApp = appointments.find((app) => app.doctorName === name);
 
         if (foundApp && foundApp.doctorSpeciality === speciality) {
@@ -84,8 +59,8 @@ const DoctorCard = ({ name, speciality, experience, ratings, toggleAppointmentDa
        <Popup
           style={{ backgroundColor: '#FFFFFF' }}
           trigger={
-            <button className={`book-appointment-btn ${bookedApp ? 'cancel-appointment-btn' : ''}`}>
-              {bookedApp ? (
+            <button className={`book-appointment-btn ${isLoggedIn && bookedApp ? 'cancel-appointment-btn' : ''}`}>
+              {isLoggedIn && bookedApp ? (
                 <div>Cancel Appointment</div>
               ) : (
                 <div>Book Appointment</div>
@@ -111,7 +86,7 @@ const DoctorCard = ({ name, speciality, experience, ratings, toggleAppointmentDa
                 </div>
               </div>
 
-              {bookedApp ? (
+              {isLoggedIn && bookedApp ? (
                 <>
                   <h3 style={{ textAlign: 'center' }}>Appointment Booked!</h3>
                   {/* {appointments.map((appointment) => ( */}

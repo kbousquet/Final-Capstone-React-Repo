@@ -4,17 +4,8 @@ import collapseChevron from '../../Images/collapse-chevron.svg';
 import './Notification.css';
 import Navbar from '../Navbar/Navbar';
 
-const Notification = ({children, appointmentData}) => {
+const Notification = ({children, appointmentData, isLoggedIn, toggleIsLoggedIn}) => {
     const [expanded, setExpanded] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    
-    useEffect(() => {
-        const storedUsername = sessionStorage.getItem('email');
-      
-        if (storedUsername) {
-            setIsLoggedIn(true);
-        }
-    }, []);
 
     const toggleExpanded = () => {
         setExpanded(!expanded);
@@ -22,7 +13,7 @@ const Notification = ({children, appointmentData}) => {
 
   return (
     <>
-        <Navbar />
+        <Navbar isLoggedIn={isLoggedIn} toggleIsLoggedIn={toggleIsLoggedIn} />
         {children}
         {appointmentData && appointmentData.length > 0 && isLoggedIn && (
             <div className={(expanded ? 'notification-container expanded' : 'notification-container')}>
