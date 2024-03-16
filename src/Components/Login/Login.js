@@ -52,7 +52,7 @@ const Login = ({toggleLogin, toggleSignup}) => {
    
     return (
         <div className="login-wrapper" onClick={toggleLogin}>
-            <div className="login-container">
+            <div className="login-container" onClick={(e) => e.stopPropagation()}>
                 <div className="login-text">
                     <h1>Login</h1>
                 </div>
