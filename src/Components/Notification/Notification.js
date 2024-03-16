@@ -7,7 +7,6 @@ import Navbar from '../Navbar/Navbar';
 const Notification = ({children, appointmentData}) => {
     const [expanded, setExpanded] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    // const [appointmentData, setAppointmentData] = useState(null);
     
     useEffect(() => {
         const storedUsername = sessionStorage.getItem('email');
@@ -17,15 +16,15 @@ const Notification = ({children, appointmentData}) => {
         }
     }, []);
 
-const toggleExpanded = () => {
-    setExpanded(!expanded);
-};
+    const toggleExpanded = () => {
+        setExpanded(!expanded);
+    };
 
   return (
     <>
         <Navbar />
         {children}
-        {appointmentData && isLoggedIn && (
+        {appointmentData && appointmentData.length > 0 && isLoggedIn && (
             <div className={(expanded ? 'notification-container expanded' : 'notification-container')}>
                 <button className="expand-btn" onClick={toggleExpanded}>
                 {expanded ? <img src={collapseChevron} alt="Collapse" width="20px" height="20px" /> : <img src={expandChevron} alt="Expand" width="20px" height="20px" />}
@@ -33,13 +32,16 @@ const toggleExpanded = () => {
                 </button>
                     <>
                         <p>
-                            <strong>Doctor:</strong> {appointmentData?.doctorName}
+                            <strong>Doctor:</strong> {appointmentData[0]?.doctorName}
                         </p>
                         <p>
-                            <strong>Speciality:</strong> {appointmentData?.doctorSpeciality}
+                            <strong>Speciality:</strong> {appointmentData[0]?.doctorSpeciality}
                         </p>
                         <p>
-                            <strong>Date & Time:</strong> {appointmentData?.dateTime}
+                            <strong>Date:</strong> {appointmentData[0]?.date}
+                        </p>
+                        <p>
+                            <strong>Time:</strong> {appointmentData[0]?.time}
                         </p>
                     </>
             </div>

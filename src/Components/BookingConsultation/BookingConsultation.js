@@ -4,7 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import FindDoctorSearch from './FindDoctorSearch/FindDoctorSearch';
 import DoctorCard from './DoctorCard/DoctorCard';
 
-const BookingConsultation = ({toggleAppointmentData}) => {
+const BookingConsultation = ({toggleAppointmentData, appointments}) => {
     const [searchParams] = useSearchParams();
     const [doctors, setDoctors] = useState([]);
     const [filteredDoctors, setFilteredDoctors] = useState([]);
@@ -68,7 +68,7 @@ const BookingConsultation = ({toggleAppointmentData}) => {
                     <h2>{filteredDoctors.length} doctors are available {searchParams.get('location')}</h2>
                     <h3>Book appointments with minimum wait-time & verified doctor details</h3>
                     {filteredDoctors.length > 0 ? (
-                    filteredDoctors.map(doctor => <DoctorCard className="doctorcard" {...doctor} key={doctor.name} toggleAppointmentData={toggleAppointmentData} />)
+                    filteredDoctors.map(doctor => <DoctorCard className="doctorcard" {...doctor} key={doctor.name} toggleAppointmentData={toggleAppointmentData} appointments={appointments} />)
                     ) : (
                     <p>No doctors found.</p>
                     )}
