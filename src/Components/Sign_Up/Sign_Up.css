@@ -85,10 +85,18 @@
         color: #fff;
         margin-bottom: 10px;
     }
+
+    .btn-submit:hover {
+        background-color: #015b81;;
+    }
     
     .btn-reset {
         background-color: #BB271A;
         color: #fff;
+    }
+
+    .btn-reset:hover {
+        background-color: #972116;
     }
 
     .err {

@@ -90,7 +90,6 @@ nav {
 }
 
 .nav__btn:hover{
-    transform: scale(0.98);
     background-color: #015b81;
     color: white;
     cursor: pointer;
