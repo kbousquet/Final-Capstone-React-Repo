@@ -99,8 +99,8 @@ const Navbar = ({isLoggedIn, toggleIsLoggedIn}) => {
                     </div>
                 </ul>
             </nav>
-            {showSignup && <Signup toggleSignup={toggleSignup} />}
-            {showLogin && <Login toggleLogin={toggleLogin} />}
+            {showSignup && <Signup toggleSignup={toggleSignup} toggleLogin={toggleLogin} />}
+            {showLogin && <Login toggleLogin={toggleLogin} toggleSignup={toggleSignup} />}
         </>
     )
 }

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { API_URL } from '../../config';
 import './Login.css';
 
-const Login = ({toggleLogin}) => {
+const Login = ({toggleLogin, toggleSignup}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState('');
@@ -14,6 +14,11 @@ const Login = ({toggleLogin}) => {
         navigate("/")
         }
     }, []);
+
+    const toggleSignupModal = () => {
+        toggleLogin(false);
+        toggleSignup(true);
+    }
 
     const login = async (e) => {
         e.preventDefault();
@@ -52,7 +57,7 @@ const Login = ({toggleLogin}) => {
                     <h1>Login</h1>
                 </div>
                 <div className="login-text1" style={{textAlign: "left"}}>
-                    New member? <span><a href="../Signup"> Sign Up</a></span>
+                    New member? <span onClick={toggleSignupModal}>Sign Up</span>
                 </div>
                 <form onSubmit={login} noValidate>
                     <div className="form-group">
