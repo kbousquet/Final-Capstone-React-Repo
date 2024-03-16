@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import '../DoctorCard/DoctorCard.css'
 
 const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
     const [name, setName] = useState('');
@@ -15,7 +16,7 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
   
     return (
       <form onSubmit={handleFormSubmit} className="appointment-form">
-        <div className="form-group">
+        <div className="app-form-group">
           <label htmlFor="name">Name:</label>
           <input
             type="text"
@@ -23,9 +24,10 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
+            className='form-control'
           />
         </div>
-        <div className="form-group">
+        <div className="app-form-group">
           <label htmlFor="phoneNumber">Phone Number:</label>
           <input
             type="tel"
@@ -33,9 +35,10 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
             required
+            className='form-control'
           />
         </div>
-        <div className="form-group">
+        <div className="app-form-group">
           <label htmlFor="date">Date:</label>
           <input
             type="date"
@@ -43,9 +46,10 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
             value={date}
             onChange={(e) => setDate(e.target.value)}
             required
+            className='form-control'
           />
         </div>
-        <div className="form-group">
+        <div className="app-form-group">
           <label htmlFor="time">Time:</label>
           <input
             type="time"
@@ -53,6 +57,7 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
             value={time}
             onChange={(e) => setTime(e.target.value)}
             required
+            className='form-control'
           />
         </div>
         <button type="submit">Book Now</button>

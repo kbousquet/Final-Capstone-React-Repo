@@ -2,8 +2,6 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from './Components/Landing_Page/LandingPage';
-import Signup from './Components/Sign_Up/Signup';
-import Login from './Components/Login/Login';
 import InstantConsultation from './Components/InstantConsultationBooking/InstantConsultation';
 import BookingConsultation from './Components/BookingConsultation/BookingConsultation';
 import Services from './Components/Services/Services';
@@ -18,7 +16,7 @@ function App() {
             setAppointmentData([...appointmentData]);
         } else if (type === "remove") {
             const updatedAppointments = appointmentData.filter((appointment) => appointment.id !== data.id);
-            setAppointmentData([updatedAppointments]);
+            setAppointmentData([...updatedAppointments]);
         }
     }
     const toggleIsLoggedIn = (boolean) => {
@@ -34,7 +32,11 @@ function App() {
     }, []);
 
     useEffect(() => {
-        if (appointmentData.length > 0) localStorage.setItem("appointmentData", JSON.stringify(appointmentData));
+        if (appointmentData.length > 0) {
+            localStorage.setItem("appointmentData", JSON.stringify(appointmentData));
+        } else {
+            localStorage.setItem("appointmentData", JSON.stringify([]))
+        }
     }, [appointmentData])
 
     return (
@@ -45,8 +47,6 @@ function App() {
                         <Routes>
                             <Route path="/" element={<LandingPage/>}/>
                             <Route path="/home" element={<LandingPage/>}/>
-                            <Route path="/signup" element={<Signup/>}/>
-                            <Route path="/login" element={<Login/>}/>
                             <Route path="/services/instant-consultation" element={<InstantConsultation />}/>
                             <Route path="/services/appointments" element={<BookingConsultation toggleAppointmentData={toggleAppointmentData} appointments={appointmentData} isLoggedIn={isLoggedIn} />}/>
                             <Route path="/services" element={<Services />}/>

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { API_URL } from '../../config';
 import './Sign_Up.css';
 
-const Signup = () => {
+const Signup = ({toggleSignup}) => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
@@ -88,7 +88,7 @@ const Signup = () => {
 
 
     return (
-        <div className="signup-wrapper">
+        <div className="signup-wrapper" onClick={toggleSignup}>
             <div className="signup-container">
                 <div className="signup-text">
                     <h1>Sign Up</h1>

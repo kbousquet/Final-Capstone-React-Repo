@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { API_URL } from '../../config';
 import './Login.css';
 
-const Login = () => {
+const Login = ({toggleLogin}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState('');
@@ -46,7 +46,7 @@ const Login = () => {
     };
    
     return (
-        <div className="login-wrapper">
+        <div className="login-wrapper" onClick={toggleLogin}>
             <div className="login-container">
                 <div className="login-text">
                     <h1>Login</h1>
