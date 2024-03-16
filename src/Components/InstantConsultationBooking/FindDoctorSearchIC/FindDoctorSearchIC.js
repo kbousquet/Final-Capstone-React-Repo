@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './FindDoctorSearchIC.css';
+import '../../BookingConsultation/FindDoctorSearch/FindDoctorSearch.css';
 import { useNavigate, Navigate } from 'react-router-dom';
 import magnifyingGlass from '../../../Images/magnifying-glass.svg';
 import instantConsultationSearch from '../../../Images/instant-consult-search.jpg';

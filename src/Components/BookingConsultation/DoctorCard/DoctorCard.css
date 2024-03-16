@@ -145,8 +145,6 @@
   padding: 20px;
   background-color: #f5f5f5;
   border-radius: 8px;
-  /* height: auto;
-  overflow-y: auto; */
 }
 
 .form-group {
@@ -186,5 +184,4 @@ button:hover {
 .btnslot{
   background-color: green;
   cursor: pointer;
-  /* color: rgb(249, 60, 60); */
 }
