@@ -23,7 +23,7 @@ const Services = () => {
                         <p>Book an Appointment</p>
                     </div>
                 </Link>
-                <Link to="/" style={{ textDecoration: 'none' }}>
+                <Link to="/health-tips" style={{ textDecoration: 'none' }}>
                     <div className="services-card">
                         <img src={healthTips} alt="health-tips"></img> 
                         <p>Health Tips and Guidance</p>
