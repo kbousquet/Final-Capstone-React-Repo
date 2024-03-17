@@ -6,6 +6,7 @@ import InstantConsultation from './Components/InstantConsultationBooking/Instant
 import BookingConsultation from './Components/BookingConsultation/BookingConsultation';
 import Services from './Components/Services/Services';
 import Notification from './Components/Notification/Notification';
+import ReviewForm from './Components/ReviewForm/ReviewForm';
 import UnderConstruction from './Components/UnderConstruction';
 
 function App() {
@@ -35,9 +36,10 @@ function App() {
     useEffect(() => {
         if (appointmentData.length > 0) {
             localStorage.setItem("appointmentData", JSON.stringify(appointmentData));
-        } else {
-            localStorage.setItem("appointmentData", JSON.stringify([]))
-        }
+        } 
+        // else {
+        //     localStorage.setItem("appointmentData", JSON.stringify([]))
+        // }
     }, [appointmentData])
 
     return (
@@ -51,6 +53,7 @@ function App() {
                             <Route path="/services/instant-consultation" element={<InstantConsultation />}/>
                             <Route path="/services/appointments" element={<BookingConsultation toggleAppointmentData={toggleAppointmentData} appointments={appointmentData} isLoggedIn={isLoggedIn} />}/>
                             <Route path="/services" element={<Services />}/>
+                            <Route path="/reviews" element={<ReviewForm appointmentData={appointmentData} />}/>
                             <Route path="/health-tips" element={<UnderConstruction />}/>
                         </Routes>   
                     </Notification>  

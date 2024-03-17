@@ -75,46 +75,21 @@
     font-size: 12px;
     font-weight: bold;
   }
-  /* .modal-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
 
-/* .modal-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  max-width: 400px;
-  text-align: center;
-}
-
-.modal-content h3 {
-  margin-top: 0;
-}
-
-.modal-content p {
-  margin-bottom: 20px;
-}
-
-.modal-btn {
-  display: inline-block;
-  padding: 8px 16px;
-  background-color: #2196f3;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-} */
-
+  button {
+    padding: 12px 20px;
+    background-color: #008BC7;
+    color: #fff;
+    border: none;
+    border-radius:4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #015b81;
+  }
+  
 .appointment-modal {
     position: fixed;
     top: 138px;
@@ -188,19 +163,17 @@
 }
 
 .cancel-appointment-btn {
-  display: inline-block;
-  padding: 12px 20px;
-  background-color: #BB271A;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: 16px;
+  background-color: #BB271A !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s ease !important;
+  font-size: 16px !important;
 }
 
 .cancel-appointment-btn:hover {
-  background-color: #972116;
+  background-color: #972116 !important;
 }
 
 .app-form-group {
@@ -224,24 +197,4 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
-}
-
-button {
-  padding: 12px 20px;
-  background-color: #008BC7;
-  color: #fff;
-  border: none;
-  border-radius:4px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-button:hover {
-  background-color: #015b81;
-}
-
-
-.btnslot{
-  background-color: green;
-  cursor: pointer;
 }

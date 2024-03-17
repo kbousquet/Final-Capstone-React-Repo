@@ -3,30 +3,40 @@
     align-items: center;
     height: 100%;
     flex-direction: column;
-    color: #414146
+    color: #414146;
 }
 
 .table-container h1 {
     padding-bottom: 20px;   
 }
+
 .reviews-table {
     border-collapse: collapse;
     table-layout: fixed;
 }
 
-.reviews-table th,
+.reviews-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    max-width: 200px;
+    min-width: 200px;
+    height: 40px;
+}
+
 .reviews-table td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: center;
     max-width: 200px;
     min-width: 200px;
-    height: 50px;
+    height: 80px;
 }
 
-.review-given {
+.review-text {
+    height: 100%;
     overflow-y: auto;
-    max-height: 50px
+    text-align: left;
 }
 
 .modal-overlay {
@@ -42,18 +52,60 @@
 }
 
 .modal {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    width: 500px;
-    height: 500px;
+    width: 35rem;
+    height: 38rem;
+    background-color: #F0F0F0;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    z-index: 998;
+
+    label {
+        color: black;
+        margin-bottom: 10px;
+        margin-left: 55px;
+        font-weight: bold;
+    }
+
+    h1 {
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .form-control {
+        width: 80%;
+        padding: 8px 0px 8px 0;
+        font-size: 16px;
+        border: 1px solid #B4B4B4;
+        border-radius: 4px;
+        padding-left: 8px;
+        margin-bottom: 10px;
+        align-self: center;
+    }
+
+    .form-contents {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 80%;
+    }
+
+    button {
+        align-self: center;
+    }
+
+}
+
+button:disabled {
+    background-color: #b6cad3 !important;
+    cursor:not-allowed;
 }
 
 .modal textarea.non-resizable {
     resize: none;
     width: 80%;
-    height: 70%;
+    height: 50%;
 }
+
 
 .modal button {
     padding: 10px 0px;
