@@ -4,14 +4,57 @@
     right: 0px;
     background-color: #F0F0F0;
     border-bottom-left-radius: 10px;
-    height: 500px;
+    height: 350px;
     width: 352px;
     transition: top 0.5s ease-out;
     z-index: 500;
+    display: flex;
+    flex-direction: column;
 
+    button {
+        width: 100px;
+        border-radius: 25px;
+        align-self: center;
+    }
+
+    form {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        margin-left: 21px;
+    }
+
+    input {
+        width: 80%;
+        align-self: center;
+        margin-bottom: 15px;
+    }
+}
+
+.profile-email {
+    margin-top: 15px;
 }
 
 .profile-expanded {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     top: 138px;
 }
+
+.profile-details {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    .profile-items {
+        padding-left: 15px;
+    }
+
+    h1 {
+        padding-left: 15px;
+    }
+}
+
