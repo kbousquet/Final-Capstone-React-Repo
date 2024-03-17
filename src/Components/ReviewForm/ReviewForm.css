@@ -4,6 +4,13 @@
     height: 100%;
     flex-direction: column;
     color: #414146;
+
+    button {
+        width: 150px;
+        height: 50px;
+        border-radius: 25px;
+        margin-top: 0;
+    }
 }
 
 .table-container h1 {
@@ -16,7 +23,8 @@
 }
 
 .reviews-table th {
-    border: 1px solid #ddd;
+    border-bottom: 1px solid rgb(185, 185, 185);
+    background-color: #e8edf0;
     padding: 8px;
     text-align: center;
     max-width: 200px;
@@ -25,12 +33,15 @@
 }
 
 .reviews-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
     text-align: center;
     max-width: 200px;
     min-width: 200px;
     height: 80px;
+    border: none;
+}
+
+.reviews-table tr {
+    border-bottom: 1px solid rgb(185, 185, 185);
 }
 
 .review-text {

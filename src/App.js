@@ -58,7 +58,7 @@ function App() {
                             <Route path="/services/instant-consultation" element={<InstantConsultation />}/>
                             <Route path="/services/appointments" element={<BookingConsultation toggleAppointmentData={toggleAppointmentData} appointments={appointmentData} isLoggedIn={isLoggedIn} />}/>
                             <Route path="/services" element={<Services />}/>
-                            <Route path="/reports" element={<ReportsLayout />}/>
+                            <Route path="/reports" element={<ReportsLayout appointmentData={appointmentData} />}/>
                             <Route path="/reviews" element={<ReviewForm appointmentData={appointmentData} toggleAppointmentData={toggleAppointmentData} />}/>
                             <Route path="/health-tips" element={<UnderConstruction />}/>
                         </Routes>   

@@ -61,7 +61,7 @@ const Navbar = ({isLoggedIn, toggleIsLoggedIn}) => {
         if (showProfile === true && expanded === false) {
             setShowProfile(false);
         } else {
-            setExpanded(true);
+            setExpanded(!expanded);
         }
     };
 
