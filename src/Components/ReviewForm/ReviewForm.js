@@ -1,19 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import './ReviewForm.css';
+import { FaStar } from 'react-icons/fa';
 
-const ReviewForm = ({appointmentData}) => {
+const ReviewForm = ({appointmentData, toggleAppointmentData}) => {
     const [name, setName] = useState('');
     const [showModal, setShowModal] = useState(false);
     const [currentReview, setCurrentReview] = useState('');
     const [selectedRowIndex, setSelectedRowIndex] = useState(null);
+    const [currentRating, setCurrentRating] = useState(0);
+    const [hoverValue, setHoverValue] = useState(undefined);
+    const stars = Array(5).fill(0)
 
     const handleWriteReview = (index) => {
         setSelectedRowIndex(index);
         setShowModal(true);
     };
 
+    const handleStarClick = (value) => {
+        setCurrentRating(value);
+    }
+
+    const handleMouseOver = (newHoverValue) => {
+        setHoverValue(newHoverValue);
+    };
+
+    const handleMouseLeave = () => {
+        setHoverValue(undefined);
+    }
+
     const handleReviewSubmit = () => {
         appointmentData[selectedRowIndex].reviewGiven = currentReview;
+        appointmentData[selectedRowIndex].rating  = currentRating;
+        toggleAppointmentData(appointmentData[selectedRowIndex], "update");
         setShowModal(false);
     };
 
@@ -65,6 +83,25 @@ const ReviewForm = ({appointmentData}) => {
                                 placeholder="Write your review here"
                                 className="non-resizable form-control"
                             ></textarea>
+                            <label htmlFor="rating">Rating</label>
+                            <div className="ratings-container">
+                                {stars.map((_, index) => {
+                                return (
+                                    <FaStar
+                                    key={index}
+                                    size={24}
+                                    onClick={() => handleStarClick(index + 1)}
+                                    onMouseOver={() => handleMouseOver(index + 1)}
+                                    onMouseLeave={handleMouseLeave}
+                                    className={(hoverValue || currentRating) > index ? "orange" : "grey"}
+                                    style={{
+                                        marginRight: 10,
+                                        cursor: "pointer"
+                                    }}
+                                    />
+                                )
+                                })}
+                            </div>
                             <button className="btn btn-submit mb-2 mr-1 waves-effect waves-light" onClick={handleReviewSubmit}>Submit Review</button>
                         </div>
                     </div>

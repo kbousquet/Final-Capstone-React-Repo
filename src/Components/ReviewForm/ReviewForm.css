@@ -53,7 +53,7 @@
 
 .modal {
     width: 35rem;
-    height: 38rem;
+    height: 39rem;
     background-color: #F0F0F0;
     border-radius: 10px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -103,7 +103,7 @@ button:disabled {
 .modal textarea.non-resizable {
     resize: none;
     width: 80%;
-    height: 50%;
+    height: 40%;
 }
 
 
@@ -119,4 +119,16 @@ button:disabled {
 
 .modal button:hover {
     background-color: #015b81;
+}
+
+.ratings-container {
+    margin-left: 55px;
+}
+
+.orange {
+    color: #fac61d;
+}
+
+.grey {
+    color: #a9a9a9;
 }

@@ -19,6 +19,10 @@ function App() {
         } else if (type === "remove") {
             const updatedAppointments = appointmentData.filter((appointment) => appointment.id !== data.id);
             setAppointmentData([...updatedAppointments]);
+        } else if (type === "update") {
+            const index = appointmentData.indexOf(data.id);
+            const updatedAppointments = appointmentData.splice(index, 1, data);
+            setAppointmentData([...updatedAppointments]);            
         }
     }
     const toggleIsLoggedIn = (boolean) => {
@@ -53,7 +57,7 @@ function App() {
                             <Route path="/services/instant-consultation" element={<InstantConsultation />}/>
                             <Route path="/services/appointments" element={<BookingConsultation toggleAppointmentData={toggleAppointmentData} appointments={appointmentData} isLoggedIn={isLoggedIn} />}/>
                             <Route path="/services" element={<Services />}/>
-                            <Route path="/reviews" element={<ReviewForm appointmentData={appointmentData} />}/>
+                            <Route path="/reviews" element={<ReviewForm appointmentData={appointmentData} toggleAppointmentData={toggleAppointmentData} />}/>
                             <Route path="/health-tips" element={<UnderConstruction />}/>
                         </Routes>   
                     </Notification>  
