@@ -1,0 +1,18 @@
+.profile-container {
+    position: fixed;
+    top: -362px;
+    right: 0px;
+    background-color: #F0F0F0;
+    border-bottom-left-radius: 10px;
+    height: 500px;
+    width: 352px;
+    transition: all 0.5s ease-out;
+
+    z-index: 500;
+
+}
+
+.profile-expanded {
+    top: 138px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

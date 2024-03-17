@@ -4,6 +4,9 @@ import './Navbar.css';
 import stayHealthyLogo from '../../Images/logoIcon.svg';
 import Signup from '../Sign_Up/Signup';
 import Login from '../Login/Login';
+import ProfileCard from '../ProfileCard/ProfileCard';
+import downChevron from '../../Images/chevron-down.svg';
+import upChevron from '../../Images/chevron-up.svg';
 
 const Navbar = ({isLoggedIn, toggleIsLoggedIn}) => {
     const [username, setUsername] = useState("");
@@ -53,6 +56,11 @@ const Navbar = ({isLoggedIn, toggleIsLoggedIn}) => {
         }
     }, []);
 
+    const [expanded, setExpanded] = useState(false);
+
+    const toggleExpanded = () => {
+        setExpanded(!expanded);
+    };
 
     return (
         <>
@@ -79,6 +87,9 @@ const Navbar = ({isLoggedIn, toggleIsLoggedIn}) => {
                     <div className="nav__btns">
                     {isLoggedIn?(
                         <>  
+                            <button className="profile-btn" onClick={toggleExpanded}>
+                                {expanded ? <img src={upChevron} alt="Close profile" width="30px" height="30px" /> : <img src={downChevron} alt="Open profile" width="30px" height="30px" />}
+                            </button>
                             <p>Welcome, {username}</p>
                             <li className="link">
                                 <button className="nav__btn logout-btn" onClick={handleLogout}>
@@ -101,6 +112,7 @@ const Navbar = ({isLoggedIn, toggleIsLoggedIn}) => {
             </nav>
             {showSignup && <Signup toggleSignup={toggleSignup} toggleLogin={toggleLogin} />}
             {showLogin && <Login toggleLogin={toggleLogin} toggleSignup={toggleSignup} />}
+            <ProfileCard expanded={expanded} />
         </>
     )
 }

@@ -59,7 +59,7 @@ nav {
     justify-content: flex-end;
 }
 
-.nav__btn{
+.nav__btn {
     border: none;
     background-color: #008BC7;
     color: white;
@@ -70,8 +70,14 @@ nav {
     font-size: 1rem;
 }
 
-.nav__btn:hover{
+.nav__btn:hover {
     background-color: #015b81;
     color: white;
     cursor: pointer;
 }  
+
+.profile-btn {
+    padding: 0 !important;
+    background-color: rgba(255, 255, 255, 0) !important;
+    width: 30px;
+}
