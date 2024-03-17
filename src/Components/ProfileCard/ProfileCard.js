@@ -3,7 +3,7 @@ import { API_URL } from "../../config";
 import { useNavigate } from "react-router-dom";
 import './ProfileCard.css';
 
-const ProfileCard = ({expanded}) => {
+const ProfileCard = ({showProfile}) => {
 
     const [userDetails, setUserDetails] = useState({});
     const [updatedDetails, setUpdatedDetails] = useState({});
@@ -96,7 +96,7 @@ const ProfileCard = ({expanded}) => {
     };
 
     return (
-        <div className={(expanded ? 'profile-container profile-expanded' : 'profile-container')}>
+        <div className={(showProfile ? 'profile-container profile-expanded' : 'profile-container')}>
             {editMode ? (
                 <form onSubmit={handleSubmit}>
                     <label className="profile-email" htmlFor="profile-email">Email</label>

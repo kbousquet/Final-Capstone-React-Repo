@@ -57,9 +57,18 @@ const Navbar = ({isLoggedIn, toggleIsLoggedIn}) => {
     }, []);
 
     const [expanded, setExpanded] = useState(false);
-
     const toggleExpanded = () => {
-        setExpanded(!expanded);
+        if (showProfile === true && expanded === false) {
+            setShowProfile(false);
+        } else {
+            setExpanded(true);
+        }
+    };
+
+    const [showProfile, setShowProfile] = useState(false);
+    const toggleProfile = () => {
+        setExpanded(false);
+        setShowProfile(!showProfile);
     };
 
     return (
@@ -89,8 +98,8 @@ const Navbar = ({isLoggedIn, toggleIsLoggedIn}) => {
                         <>  
                             <button className="profile-btn" onClick={toggleExpanded}>
                                 {expanded ? <img src={upChevron} alt="Close profile" width="30px" height="30px" /> : <img src={downChevron} alt="Open profile" width="30px" height="30px" />}
+                                <p>Welcome, {username}</p>
                             </button>
-                            <p>Welcome, {username}</p>
                             <li className="link">
                                 <button className="nav__btn logout-btn" onClick={handleLogout}>
                                 Logout
@@ -112,7 +121,14 @@ const Navbar = ({isLoggedIn, toggleIsLoggedIn}) => {
             </nav>
             {showSignup && <Signup toggleSignup={toggleSignup} toggleLogin={toggleLogin} />}
             {showLogin && <Login toggleLogin={toggleLogin} toggleSignup={toggleSignup} />}
-            <ProfileCard expanded={expanded} />
+            {expanded && 
+                <div className={(expanded ? 'user-dropdown dropdown-expanded' : 'user-dropdown')}>
+                    <p className="link" onClick={toggleProfile}>Your Profile</p>
+                    <p className="link">
+                        <Link to="/reports">Your Reports</Link>
+                    </p>
+                </div>}
+            <ProfileCard showProfile={showProfile} />
         </>
     )
 }

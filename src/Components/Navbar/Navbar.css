@@ -52,6 +52,45 @@ nav {
     color: #008BC7;
 }
 
+.user-dropdown {
+    position: fixed;
+    top: -238px;
+    right: 120px;
+    background-color: #F0F0F0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 120px;
+    width: 150px;
+    transition: top 0.5s ease-out;
+    z-index: 500;
+    display: flex;
+    flex-direction: column;
+    
+    p {
+        color: #000000;
+        transition: 0.3s;
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        margin-left: 25px;
+    }
+
+    p:hover {
+        color: #008BC7;
+        cursor: pointer;
+    }
+
+    h {
+        font-size: 18px;
+        margin-left: 25px;
+    }
+}
+
+.dropdown-expanded {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    top: 138px;
+}
+
 .nav__btns {
     display: flex;
     gap: 0.5rem;
@@ -79,5 +118,7 @@ nav {
 .profile-btn {
     padding: 0 !important;
     background-color: rgba(255, 255, 255, 0) !important;
-    width: 30px;
+    display: flex;
+    align-items: center;
+    color: black;
 }
