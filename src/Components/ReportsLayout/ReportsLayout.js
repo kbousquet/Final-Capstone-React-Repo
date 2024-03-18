@@ -4,10 +4,9 @@ import { useNavigate } from "react-router-dom";
 import './ReportsLayout.css';
 import download from "../../Images/download.svg";
 
+const PDF = process.env.PUBLIC_URL + "/patient_report.pdf";
+// console.log(process.env.PUBLIC_URL/public);
 const ReportsLayout = ({appointmentData}) => {
-
-   
-
     return (
         <div className="reports-table-container">
             <h1>Reports</h1>
@@ -28,10 +27,17 @@ const ReportsLayout = ({appointmentData}) => {
                             <td>{app.doctorName}</td>
                             <td>{app.doctorSpeciality}</td>
                             <td>
-                                <button onClick={() => handleView(index)}>View</button>
+                                <a href={PDF} target='_blank' rel='noopener noreferrer'>
+                                    <button>View</button>
+                                </a>
                             </td>
                             <td>
-                                <button onClick={() => handleDownload(index)}>Download <img src={download} alt="Download report" width="20px" height="20px" /></button>
+                                <a href={PDF} download="patient_report.pdf">
+                                    <button>
+                                        Download 
+                                        <img src={download} alt="Download report" width="20px" height="20px" />
+                                    </button>
+                                </a>
                             </td>
                         </tr>
                     ))}
