@@ -9,6 +9,8 @@ import Notification from './Components/Notification/Notification';
 import ReviewForm from './Components/ReviewForm/ReviewForm';
 import UnderConstruction from './Components/UnderConstruction';
 import ReportsLayout from './Components/ReportsLayout/ReportsLayout';
+import Signup from './Components/Sign_Up/Signup';
+import Login from './Components/Login/Login';
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -58,6 +60,8 @@ function App() {
                             <Route path="/services/instant-consultation" element={<InstantConsultation />}/>
                             <Route path="/services/appointments" element={<BookingConsultation toggleAppointmentData={toggleAppointmentData} appointments={appointmentData} isLoggedIn={isLoggedIn} />}/>
                             <Route path="/services" element={<Services />}/>
+                            <Route path="/signup" element={<Signup />}/>
+                            <Route path="/login" element={<Login />}/>
                             <Route path="/reports" element={<ReportsLayout appointmentData={appointmentData} />}/>
                             <Route path="/reviews" element={<ReviewForm appointmentData={appointmentData} toggleAppointmentData={toggleAppointmentData} />}/>
                             <Route path="/health-tips" element={<UnderConstruction />}/>

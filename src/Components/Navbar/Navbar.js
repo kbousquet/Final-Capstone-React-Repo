@@ -2,16 +2,12 @@ import React, {useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import './Navbar.css';
 import stayHealthyLogo from '../../Images/logoIcon.svg';
-import Signup from '../Sign_Up/Signup';
-import Login from '../Login/Login';
 import ProfileCard from '../ProfileCard/ProfileCard';
 import downChevron from '../../Images/chevron-down.svg';
 import upChevron from '../../Images/chevron-up.svg';
 
 const Navbar = ({isLoggedIn, toggleIsLoggedIn}) => {
     const [username, setUsername] = useState("");
-    const [showSignup, setShowSignup] = useState(false);
-    const [showLogin, setShowLogin] = useState(false);
     
     const handleLogout = () => {
         sessionStorage.removeItem("auth-token");
@@ -30,16 +26,6 @@ const Navbar = ({isLoggedIn, toggleIsLoggedIn}) => {
         }
         // callback(null);
         window.location.reload();
-    }
-
-    const toggleSignup = () => {
-        setShowLogin(false);
-        setShowSignup(!showSignup);
-    }
-
-    const toggleLogin = () => {
-        setShowSignup(false);
-        setShowLogin(!showLogin);
     }
     
     useEffect(() => { 
@@ -109,18 +95,20 @@ const Navbar = ({isLoggedIn, toggleIsLoggedIn}) => {
                     ) : (
                         <>
                             <li className="link">
-                                <button className="nav__btn logout-btn" onClick={toggleSignup}>Sign Up</button>
+                                <Link to="/signup">
+                                    <button className="nav__btn logout-btn">Sign Up</button>
+                                </Link>
                             </li>
                             <li className="link">
-                                <button className="nav__btn" onClick={toggleLogin}>Login</button>
+                                <Link to="/login">
+                                    <button className="nav__btn">Login</button>
+                                </Link>
                             </li>
                         </>
                     )}
                     </div>
                 </ul>
             </nav>
-            {showSignup && <Signup toggleSignup={toggleSignup} toggleLogin={toggleLogin} />}
-            {showLogin && <Login toggleLogin={toggleLogin} toggleSignup={toggleSignup} />}
             {expanded && 
                 <div className={(expanded ? 'user-dropdown dropdown-expanded' : 'user-dropdown')}>
                     <p className="link" onClick={toggleProfile}>Your Profile</p>
@@ -128,7 +116,7 @@ const Navbar = ({isLoggedIn, toggleIsLoggedIn}) => {
                         <Link to="/reports">Your Reports</Link>
                     </p>
                 </div>}
-            <ProfileCard showProfile={showProfile} />
+            {isLoggedIn && <ProfileCard showProfile={showProfile} />}
         </>
     )
 }

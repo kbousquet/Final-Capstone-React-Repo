@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { API_URL } from '../../config';
 import './Sign_Up.css';
 
-const Signup = ({toggleSignup, toggleLogin}) => {
+const Signup = () => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
@@ -16,11 +16,6 @@ const Signup = ({toggleSignup, toggleLogin}) => {
 
     const navigate = useNavigate();
     
-    const toggleLoginModal = () => {
-        toggleSignup(false);
-        toggleLogin(true);
-    }
-
     const register = async (e) => {
         e.preventDefault();
 
@@ -93,13 +88,13 @@ const Signup = ({toggleSignup, toggleLogin}) => {
 
 
     return (
-        <div className="signup-wrapper" onClick={toggleSignup}>
+        <div className="signup-wrapper">
             <div className="signup-container" onClick={(e) => e.stopPropagation()}>
                 <div className="signup-text">
                     <h1>Sign Up</h1>
                 </div>
                 <div className="signup-text1" style={{textAlign: "left"}}>
-                    Already a member? <span onClick={toggleLoginModal}>Login</span>
+                    Already a member? <span><a href="../Login"> Login</a></span>
                 </div>
                 <form method="POST" onSubmit={register} noValidate>
                     <div className="form-group">

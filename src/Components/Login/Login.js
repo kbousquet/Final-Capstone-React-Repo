@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { API_URL } from '../../config';
 import './Login.css';
 
-const Login = ({toggleLogin, toggleSignup}) => {
+const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState('');
@@ -14,11 +14,6 @@ const Login = ({toggleLogin, toggleSignup}) => {
         navigate("/")
         }
     }, []);
-
-    const toggleSignupModal = () => {
-        toggleLogin(false);
-        toggleSignup(true);
-    }
 
     const login = async (e) => {
         e.preventDefault();
@@ -51,24 +46,24 @@ const Login = ({toggleLogin, toggleSignup}) => {
     };
    
     return (
-        <div className="login-wrapper" onClick={toggleLogin}>
-            <div className="login-container" onClick={(e) => e.stopPropagation()}>
+        <div className="login-wrapper">
+            <div className="login-container">
                 <div className="login-text">
                     <h1>Login</h1>
                 </div>
                 <div className="login-text1" style={{textAlign: "left"}}>
-                    New member? <span onClick={toggleSignupModal}>Sign Up</span>
+                    New member? <span><a href="../Signup"> Sign Up</a></span>
                 </div>
                 <form onSubmit={login} noValidate>
                     <div className="form-group">
-                        <label for="email">Email</label>
+                        <label htmlFor="email">Email</label>
                         <input type="email" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required className={`form-control ${emailError ? 'is-invalid' : ''}`} placeholder="Enter your email" aria-describedby="helpId" />
                         <div className="error-container">
                             <div className="err">{emailError}</div>
                         </div>
                     </div>
                     <div className="form-group">
-                        <label for="password">Password</label>
+                        <label htmlFor="password">Password</label>
                         <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required className="form-control" placeholder="Enter your password" aria-describedby="helpId" />
                     </div>
                     <div className="btn-group">
