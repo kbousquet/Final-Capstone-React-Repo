@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import '../../BookingConsultation/DoctorCard/DoctorCard.css';
 
 const AppointmentFormIC = ({ doctorName, doctorSpeciality, onSubmit }) => {
     const [name, setName] = useState('');

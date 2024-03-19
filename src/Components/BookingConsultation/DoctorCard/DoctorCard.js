@@ -10,10 +10,6 @@ const DoctorCard = ({ name, speciality, experience, ratings, toggleAppointmentDa
     const [showModal, setShowModal] = useState(false);
     const [bookedApp, setbookedApp] = useState(null);
 
-    const handleBooking = () => {
-        setShowModal(true);
-    };
-
     const handleCancel = (appointmentId) => {
         const appointment = appointments.find((appointment) => appointment.id == appointmentId);
         toggleAppointmentData(appointment, "remove");
@@ -31,7 +27,11 @@ const DoctorCard = ({ name, speciality, experience, ratings, toggleAppointmentDa
     };
 
     const handleModal = () => {
-        setShowModal(!showModal);
+        if (!isLoggedIn) {
+            alert("Please login or sign up for an account to book an appointment.")
+        } else {
+            setShowModal(!showModal);
+        }
     }
 
     const checkAppointment = () =>  {
@@ -86,13 +86,11 @@ const DoctorCard = ({ name, speciality, experience, ratings, toggleAppointmentDa
                     {isLoggedIn && bookedApp ? (
                     <>
                         <h3 style={{ textAlign: 'center' }}>Appointment Booked!</h3>
-                        {/* {appointments.map((appointment) => ( */}
                         <div className="bookedInfo" key={bookedApp.id}>
                             <p>Name: {bookedApp.name}</p>
                             <p>Phone Number: {bookedApp.phoneNumber}</p>
                             <button className="cancel-appointment-btn" onClick={() => handleCancel(bookedApp.id)}>Cancel Appointment</button>
                         </div>
-                        {/* ))} */}
                     </>
                     ) : (
                     <AppointmentForm doctorName={name} doctorSpeciality={speciality} onSubmit={handleFormSubmit} />

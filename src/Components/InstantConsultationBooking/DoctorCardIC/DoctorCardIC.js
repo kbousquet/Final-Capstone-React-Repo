@@ -10,10 +10,6 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
   const [showModal, setShowModal] = useState(false);
   const [appointments, setAppointments] = useState([]);
 
-  const handleBooking = () => {
-    setShowModal(true);
-  };
-
   const handleCancel = (appointmentId) => {
     const updatedAppointments = appointments.filter((appointment) => appointment.id !== appointmentId);
     setAppointments(updatedAppointments);
